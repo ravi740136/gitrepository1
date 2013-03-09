@@ -4,5 +4,5 @@ Integer abcdf;
 double defgh;
 float bsdfg;
 int aass;
-
+char c;
 }
