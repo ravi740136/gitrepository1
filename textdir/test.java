@@ -1,6 +1,6 @@
 import java.io.*
 public class test{
-Integer a;
+Integer abcdf;
 double d;
 float b;
 }
