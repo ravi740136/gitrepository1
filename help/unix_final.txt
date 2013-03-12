@@ -1,0 +1,12 @@
+grep:
+----
+to filter file contents or ouput of a command  based on some string
+
+lsof | grep compdev | grep python
+
+To find disk usage "df" command
+
+05:54:34compdev@qa2:/proj/qa-hyd/builds/BackOffice/Compliance/compliance/code> df /proj/qa-hyd
+Filesystem           1K-blocks      Used Available Use% Mounted on
+fsnyc7.nyc.deshaw.com:/vol/proj1/proj-244
+                     157286400 118624896  38661504  76% /proj/qa-hyd

@@ -1,0 +1,438 @@
+Compliance deployment location:
+/proj/gbo/complydev/source/portal/git/compliance/code
+
+agile testing test driven coding,collaborative testing, testing and development together
+wild card characters in sql, escaping
+using in, between, alphabetical ordering using between operator
+integral types for byte, char, short
+using replaceAll , trim, tolowercase, remove certain characters using replaceall
+Hashmap declaration, static initialization, accessing keyset, getting values from hash map
+using array to store list of values
+String[] test={"test1", "test2"}
+HashMap<String, String> hm = new hashMap<String, String> () hm.put(key, value) hm.keyset() hm.get(key)
+split a string using space characters string.split("\\s")
+How to get minimum value among list of values
+How to get length of a string using length() function
+Conditional operator for conditions 
+float declaration and casting
+to check for certain sub string in string "indexof > -1" or contains, charat(index), substring ()
+usage of arralist and add elemets to list and get elemen
+usage of hashcode
+== operator to check the object equals object (this == obj) this, object , null
+difference between bean and class
+difference between == and equals operators
+system.arraycopy method to copy arrays to single array
+getdeclaredmethods()
+getdeclaredmethods(Class c) used to get the array of methods 
+getsuperclass to get super class
+use of recursion to get methods from all super classes
+learnt about substring (0, endindex)
+can get length of substring by endindex-startindex
+yet to learn about the method TokenGeneratorServlet.class.getResourceAsStream and properties.load(inputstream) method
+filters present in maven will replace the variables in properties file with correct values from some other properties file
+
+
+27/11/12
+Use isempy and null checks for strings
+
+BOAUTO:
+1. prepare logger
+2. get server details to serverDOM
+3. get master input file, get list of testcaseDOM FROM master_input
+4. initialize global objects
+
+20/12/2012
+Enhancements:
+1. GBO Auto installation Framework
+	Creation of symlink wires which points to latest release
+	Roll back process including renaming the chnage version folder
+
+ant tasks
+--------------
+project name default basedir
+import task to import xml files
+copy todir overwrite **/* excludes
+copy todir includes **
+fileset includes excludes
+tstamp format TODAY DSTAMP TSTAMP new property pattern locale
+filterchain expandproperties
+replace file replacefilter flags regexp substitution token
+we can also replace tokens from directory all files, instead of single file
+property file used to load the properties from the file
+property name vlaue
+chmod file perm to change permissions chmod dir includes perm
+chmod perm filelist file, give permissions on list of files
+delete
+mkdir
+java task can have arg line attribute used to set command line arguments
+java fork attribute
+antcall to call some other target in build.xml
+exec executable to execute system command and env key value to set environment variables
+echo message used to disply message
+concat destfile filelist dir files fixlastline will concat given list of files to single result file
+wires deployment:
+-----------------
+svn checkout
+mvn clean install
+cp target/*.tar.gz wires
+cd wires
+tar -xzvf *.tar.gz
+ant clean deploy
+tomcat/webapps/ROOT/WEB-INF/web.xml NEEDS TO BE CONFIGURED FOR ntlm aUTHENTICATION
+also configure in web. xml the following things welcome pages, error pages, context parameters, servlets, servlet mappings, filters, listener classes, session config, jsf config
+copy tomcat/webapps/ROOT IN BUILD TO TOMCAT BASE DIRECTORY /var/tomcat/wiresqa
+in tmcat base bin,conf, webapps and logs folders are important
+
+control room deployment
+----------------------------
+applicationcontext.xml is present in webapps/root/wen-inf along with web.xml
+struts.xml is present in classes folder
+first we combine compliance.properties with app.properties and put in build/compliance.properties using concat tag
+Automation Strategy:
+---------------------
+Can be automated or not, which parts need to be automated
+is it good candidate for automation, for how long the project will be used and when shoudl it be signed off
+Technologies used for automation, which technology will be more suitable
+resources required
+kind of project has it more UI based or command line based use selenium or jmeter
+Do we have required skill set Training required if it is new tool
+do we have enough resources available
+
+UNIX Commands:
+-----------------
+scp /prod/gbo/app/compliance/installation_files/portal/automated_complydev_release.sh vnc2.hyd:/proj/qa-hyd/builds/compliance
+scp, scp -r option
+sudo 
+ssh (remote connection)
+root level directories in unix machine var/tomcat etc proj usr/local/java u/qauser
+permission u+r u+s u=rw rwx user, group, other
+some executables can be provided s instead of x sid and gid
+
+getopts
+
+bashmanual:
+http://www.gnu.org/software/bash/manual/bashref.html
+
+Learnings:
+----------
+do not edit same property in multiple places
+instead in the ant script replace the token in different files by loading a properties file
+automation strategy
+contribution to dev users and team
+
+Doubts:
+----------
+what is NTLM domain controller
+
+
+Control room:
+------------------
+If we have MNPI (Material Non public Information) related with a project then  we add restrictions on related SPNs so that
+insider trading will not happen
+CROP interested in the info Eircom restructuring deal which is bankrupt and being sold to Singapore telecomm
+different types of restrictions like type1 and type2 are possible
+We publish the restrictions to GUAS and PTAP so that PTAP can use this information and approval is not allowed on such trades
+When various actions like adding restriction and lifting the restriction happens it should be immediately reflected in log files type1. type2, watch, wall, unrestrict, do not restrict
+purely private
+GUAS has wash kill file where the restrictions are published GUAS will check for these restrictions and will not ensure that trades will not happen on 
+those SPNs/companies
+Similary PTAP will have files where the restritions are uploaded while approving a PTAP Trade compliance will check for the restricted SPNs
+	Verified that the user can publish watchlist restrictions Restrict Type 1 with Scope = All children. It updates the log files correctly.
+	Verified that the user can publish watchlist restrictions Restrict Type 2 with Scope = All children. It updates the log files correctly.
+	There is utility service to publish restrictions to GUAS and PTAP (http://desflow/Q/ComplyDev/2724)
+	bo/complydev/trunk/compliance_portal/code/modules/ccr/src/main/java/deshaw/compliance/ccr/util/PublishRestrictions.java 
+    bo/complydev/trunk/compliance_portal/code/modules/ccr/src/main/java/deshaw/compliance/ccr/domain/PublishRestrictionStatus.java 
+	bo/complydev/trunk/compliance_portal/code/modules/ccr/src/main/java/deshaw/compliance/ccr/service/MonitorSecurityReferenceDataService.java 
+	bo/complydev/trunk/compliance_portal/code/modules/ccr/src/main/java/deshaw/compliance/ccr/service/MonitorSecurityService.java 
+	bo/complydev/trunk/compliance_portal/code/modules/ccr/src/main/resources/deshaw/compliance/ccr/service/service-context.xml 
+	bo/complydev/trunk/reports/bin/Watchlist/Makefile.PL 
+	bo/complydev/trunk/reports/bin/Watchlist/publish_restrictions_to_guas.pl 
+	bo/complydev/trunk/reports/bin/Watchlist/publish_restrictions_to_ptap.pl
+We generate the trade reports for watch list, gray list and restricted list we can analyse the report to check if invalid trades are happened
+trades should not be made on type 1 restricted list, One side trades are possible on type2 list. Trades are alowed on watch list and gray list
+we need to ensure that firm level  the restriction is applied so all the trades wil appear in trade report. Personal trades will not be reflected 
+in the report
+
+sql commands:
+----------------
+command to add role member
+EXEC sp_addrolemember N'db_datareader', N'deshaw\brahmaj'
+
+SElenium:
+------------
+libs and source are present in selenium-java download
+latest version is 2.28
+Firefoxprofile.setEnableNativeEvents(false) is useful and will avoid some unexpected issues
+
+To get status codes returned by URLs
+http://www.ninthavenue.com.au/how-to-get-the-http-status-code-in-selenium-webdriver
+
+prefs.js file and about:config will give list of preferences
+
+Complete list of preferences can be seen from following URL
+http://kb.mozillazine.org/About:config_entries
+enable.javascript, home, no tab display etc can be set
+Taking screenshots is useful, default saved in png in temp directory.
+can be copied to any other format and location using fileutils
+
+Maven:
+-----------
+Coomand to execute specific module
+mvn -pl WiresAuto -am clean test
+Debugging using eclipse:
+-------------------------
+Surefire Approach.
+Create a new Java Project and call it “Maven Debug”. This Project will never have any source code in it, it is just a shell for attaching the debugger.
+Create a debug configuration: Run -> Debug Configurations and then right click on Remote Java Application and select New launch configuration. Call it “Maven Surefire”.
+Â On the Connect tab click the Browse button and select the “Maven Debug” project.
+Set connection properties to localhost and port 5005. This is the port on which Surefire waits for the debugger.
+The connection type is Standard (Socket Attach)
+On the Source tab add all projects that have any Maven source that you want to debug.
+Now let’s do the actual debugging.
+Select break points in the code you’re are going to run. Note, you cn select only code in your test classes. It won’t work on classes outside the test phase.
+In your command line, append the following switch to your maven command: -Dmaven.surefire.debug. For example, to debug the tests run by the maven lifecycle install do mvn install -Dmaven.surefire.debug
+Wait for maven to pause its execution and display the message: Listening for transport dt_socket at address: 5005
+Attach the debugger to the running maven by selecting the “Maven Surefire” debug configuration created above. Your debugger should stop at your breakpoint.
+Generic Approach.
+Follow the instructions, presented here. The only instructions that worked for me. They are very similar to the Surefire Approach.
+Note: use Maven 2.0.8 or higher. The, you don’t need to write your own maven debug script. It’ll be sufficient to use the shipped mvnDebug script.
+
+Debug commands for eclipse:
+----------------------------
+we can even see the variables values by pointing to variable in the code
+Table 1. Debugging Key bindings
+
+Command	Description
+F5	Goes to the next step in your program. If the next step is a method / function this command will jump into the associated code.
+F6	F6 will step over the call, i.e. it will call a method / function without entering the associated code.
+F7	F7 will go to the caller of the method/ function. This will leave the current code and go to the calling code.
+F8	Use F8 to go to the next breakpoint. If no further breakpoint is encountered the program will run normally.
+
+XPATH:
+----------
+used advanced xpath expression to find following radio button of a specific wire
+td preceding sibling elment with class  "GAwaitingSignApproval" , of td element whose child link is 381246
+driver.findElement(By.xpath("//td[child::a[. = '381246']]/preceding-sibling::td[@class =' GAwaitingSignApproval GMPx1xx GMCellPanel GMEmpty GMCellBorderFF3 HideCol0Panel']")).click();
+
+Advanced user actions:
+------------------------
+4 Solved scroll bar issue as follows
+			try{
+			driver.findElement(By.xpath("//td[child::a[. = '"+wireId+"']]/preceding-sibling::td[@class[contains(.,'GAwaitingSignApproval')]]")).click();
+			}
+			catch (Exception ElementNotVisibleException){
+				Action a = new Actions(driver).clickAndHold(driver.findElement(By.xpath("//div[@onscroll='Grids[0].Scrolled();']"))).moveByOffset(0, 250).release().build();
+				a.perform();
+			}
+			
+			Solved alert issue:
+			org.openqa.selenium.UnhandledAlertException: Modal dialog present
+			----------
+		3	Advantage is we need not depend on other elements which are not directly related with this element, we can handle dynamic xpath cases where element does not have id or name
+			it can happen in third part tools like treegrid
+			We can use index of element, attribute, text, conatains text attribute value for identifying the element
+			enclose the string values in single quotes
+			To include double quotes in xpath escape it using back slash
+			ignore br tags the text belongs to the parent tag
+			we can follow the tag with multiple pais of square brackets to specify multiple attributes of the element
+			we can specify the attributes of child and other axes also to identify the actual element by mentions square brackets enclosed in square brackets
+			we can dynamically genearte teh XPath as shown above by including thins like wire id in XPATH
+
+			Using database:
+			---------------
+		1	changing the logger from backend so that we can approve the wire
+			get information like wireid using request id from database
+			Challenge:
+		2	verification of values of form after submitting the form
+			there can be different types of fields like select, checkbox, radio button, text box, multi select
+Selenium Help:
+-----------------
+http://code.google.com/p/selenium/wiki/SeleniumHelp
+
+Database use:
+--------------
+While approving wire, chnaging the logger so that user can approve the request
+
+
+Java doubts:
+------------
+1. If exception happens in a called method, can that be caught in caller method (got the answer)
+
+Wires
+------
+Account details:
+Account id, Entity , broker, bank, protocol, bank account name, account no, currency, account classifier, custodian account, CITCO Control
+Source portfolio, strategy, beneficiary bank and intermediary bank, individual and institutional accounts
+
+Intermediant bank is required fro non us accounts
+
+protocol will be ABA or swift
+
+for example tax payment to state of washington amount will be transferred from management company to Thiord party account washington state government
+from HSBC bank to Bank of America NY No startegy and portfolio are associaed with the se accounts  as they are non-trade accounts
+It belongs to category tax deshaw account is intitutional and government account is individual
+this transfer will not be uploaded to coda DNU status will be set
+
+Instructions are setnt to source bank as swift or fax or efax
+
+Operations purpose and trading purpose, tax purpose
+
+clone wire, multiple wires request, preview coda, bulk update, configure grid, export to excel, approve, release, tracking-only wires
+Advanced search treegrid sorting, grouping functionality, export to excel maintain refernce data to manage metadata
+
+ThinJDB:
+------------
+Goal is to improve the code coverage of the changes made in current build
+Prepare Breakpoints list bp.txt using diff generated between builds
+Start debugger which uses java debugger interface
+Start the application in debug mode
+set break points
+Generate report of coverage
+Again write tests to cover the lines which are not covered
+Again repeat the debug process
+JPDA Port for every application to start in debug mode
+
+Kind of verifications:
+-----------------------
+Lokk fo rthe text in wires history Wire Status changed from " Pending Release " to " Released " 
+Transmission Type changed from "  " to " Fax " 
+
+Link for performance testing session:
+P:\qa-perf\Performance\Presentations\Testing For Performance.pptx
+
+Java sql:
+-------------
+Class.forName("net.sourceforge.jtds.jdbc.Driver");
+how to connect using domain credentials, how to create table, use of execute Update statement
+	Connection con = DriverManager.getConnection("jdbc:jtds:sqlserver://dbwiresqanyc.deshaw.com;databaseName=wires_qa_3_3_b4;user=jakkampr_dbo;password=Jntu@99h;domain=deshaw");
+	Connection con = DriverManager.getConnection("jdbc:jtds:sqlserver://dbwiresqanyc.deshaw.com/wires_qa_3_3_b4","wrs_user", "wrs_user");
+		s.executeUpdate("update qatest set id = 7 where id=6");
+		s.executeUpdate("insert into qatest values (2, 'ravi', '20081221',1,23478.9)");
+		s.executeUpdate("drop table qatest");
+			con.setAutoCommit(false); 	//con.commit()
+				String query = "create table qatest" +
+			" (id int, " +
+			"name varchar(25)," +
+			"bdate datetime, " +
+			"married bit," +
+			"salary float)";
+
+value = s.executeUpdate(query);
+PreparedStatement ps = con.prepareStatement("select * from twire where wireid > ?");
+ps.setString(1, "380000" );
+rs = ps.executeQuery();
+
+CallableStatement cs = con.prepareCall("exec [spGetEntityGroups]");
+rs = cs.executeQuery();
+
+	ResultSet rs = s.executeQuery("select top 10 * from twire order by wireid desc");
+ResultSetMetaData rsm = rs.getMetaData();
+
+List<String> colNames = new ArrayList<String> ();
+for (int i = 1 ; i <= rsm.getColumnCount(); i++){
+	if (rsm.getColumnName(i) .toLowerCase().startsWith("wire") && rsm.getColumnName(i) .toLowerCase().contains("id") && 
+			!rsm.getColumnName(i) .toLowerCase().contains("status")){
+		colNames.add(rsm.getColumnName(i));
+	}
+}
+for (String st : colNames){
+	System.out.println(st);
+}
+
+for (int j = 1; j< rsm.getColumnCount(); j++){
+	System.out.print(rsm.getColumnName(j) + "\t");
+	System.out.print(rsm.getColumnClassName(j) + "\t");
+	System.out.print(rsm.getColumnTypeName(j) + "\n");
+}
+
+CallableStatement cs = con.prepareCall("exec [spGetEntityGroups]");
+rs = cs.executeQuery();
+
+CallableStatement cs = con.prepareCall("exec [stp_qatest] ?, ?");
+cs.setInt(1, 100);
+cs.setString(2, "deshaw");
+cs.execute();
+
+alter procedure stp_qatest
+@idtest int,
+@nametest varchar(25)
+as
+begin
+insert into qatest values (@idtest, @nametest, '19851212', 0, 1234)
+end
+
+alter table qatest9
+drop column  address 
+
+alter table qatest
+alter column name varchar(30)
+
+alter table qatest
+add address varchar(30)
+
+	s.executeUpdate("alter table qatest add company varchar(30)");
+	
+SELENIUM FLASH FLEX
+---------------------
+Error: http://stackoverflow.com/questions/8923819/java-code-for-flex-automation-using-selenium-rc
+help: http://code.google.com/p/flex-ui-selenium/
+how to build the application with 
+
+total amount 5547
+40269164
+inv 1735
+11 jan
+
+Kinds of testing:
+--------------------
+Insertion of null values to check the behavior
+migration testing compare the values displayed in db through queries with the values displayed in UI
+
+db migration
+db testing
+deployment
+automation
+api testing
+web service testing
+security testing
+frameworks
+performance
+reporting framework
+post production issues
+time tracker
+ui module runner
+
+vi /prod/gbo/app/compliance/installation_files/porta/automated_complydev_release.sh 
+
+java heap error:
+-------------------
+
+non functional testing:
+---------------------------
+agile testing
+http://www.brijj.com/group/head-vp-gm-quality-it-software--link--The-Essence-Of-Agile-Testing-Make-Testing-Part-Of-Your-Sdlc?eid=3605994
+http://www.softwaretestinggenius.com/articalDetails?qry=494
+Non Functional or White Box Testing of Web Applications invove either or all of the following seven types of testing
+
+1) Configuration Testing: This type of test includes
+
+2) Usability Testing
+
+3) Performance Testing
+
+4) Scalability Testing
+
+5) Security Testing
+
+6) Recoverability Testing
+
+7) Reliability Testing
+
+Best execution issues:
+----------------------
+Attachments missing after upload
+submit button is not accessible without scrolling, window gets clsed quickly
+found no difference between apply, save and apply buttons
+numeric values are sorted as text values
+search not working for same date, sub type (instrument type)
+approval period is displayed for pending status also

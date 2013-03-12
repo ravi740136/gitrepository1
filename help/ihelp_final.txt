@@ -1,0 +1,161 @@
+Ame:
+AOQPJ4554G - PAN CARD FATHER
+1. Setting maven debug project
+410049
+GIT:
+git clone gitserve:mo/compliance compliance
+cloned remote repository to compliance directory
+
+git checkout -b <branch> origin/<branch>
+
+git branch 
+
+git status
+git pull
+
+git branch <branch>
+git branch -d <branch>
+git add .
+git checkout -- .
+git stash
+git stash pop
+
+To undo the chnages made
+--------------------------
+git reset HEAD .
+git checkout -- .
+Selenium:
+--------
+webdriver vs rc implementation
+find element methods for driver and element
+find element xpath, css, id, name, linktext, partail linktext, class name, tag name, get attribute
+find elements
+submit on element
+switch to windows, frames, alerts
+takesscreenshot
+manage cookies, manage window size, manage timeouts
+navigate
+select, ExpectedCondintions, explicitwaits, implicitwaits
+Advanced UI Actions for drag and drop , ctrl + multi select
+Action chanis builder will build chain of actions and return action object using build method
+click and hold, move to element, release, move by offset, context click, mouse up,double click
+Perform method of composite action object will perform the action which invokes the contained actions
+
+advanced actions vs normal actions
+page objects
+declare without findby if id or name matches the field name
+@findby(id=" "), @cachelookup, ajax applications, pagefactory.initelements(driver, page.class),pagefactory.initelements(driver, pageobject)
+
+Automation:
+----------
+Following project is working fine:
+C:\WiresAutomation\
+
+Maven debugging:
+-----------------
+It worked fine for me C:\mylocaldata\GITWORKSPACE\Maven Debug
+
+Debugging Maven projects with Eclipse
+waseem8019028019
+Posted by Martin Homik | Posted in Java, WebApp | Posted on 31-07-2008
+1
+Debugging Maven projects with Eclipse or any other IDE on Windows is not trivial. In the beginning. But once you know the mechansim, it’s simple. I googled and found a few helpful pages. Look here. Here are my experiences.
+Maven supports two debug modes: the Generic and the Surefire. If you want to debug maven itself, one of maven’s plugins, or a maven project, use the Generic Approach. If you want to debug a test in your project launched by surefire, use the Surefire Approach.
+Surefire Approach.
+Create a new Java Project and call it “Maven Debug”. This Project will never have any source code in it, it is just a shell for attaching the debugger.
+Create a debug configuration: Run -> Debug Configurations and then right click on Remote Java Application and select New launch configuration. Call it “Maven Surefire”.
+Â On the Connect tab click the Browse button and select the “Maven Debug” project.
+Set connection properties to localhost and port 5005. This is the port on which Surefire waits for the debugger.
+The connection type is Standard (Socket Attach)
+On the Source tab add all projects that have any Maven source that you want to debug.
+Now let’s do the actual debugging.
+Select break points in the code you’re are going to run. Note, you cn select only code in your test classes. It won’t work on classes outside the test phase.
+In your command line, append the following switch to your maven command: -Dmaven.surefire.debug. For example, to debug the tests run by the maven lifecycle install do mvn install -Dmaven.surefire.debug
+Wait for maven to pause its execution and display the message: Listening for transport dt_socket at address: 5005
+Attach the debugger to the running maven by selecting the “Maven Surefire” debug configuration created above. Your debugger should stop at your breakpoint.
+
+Java:
+----------
+workflow of initialization:
+first static initialization happens while loading the class,
+then super class constructor is called super() by default while creating the object
+then this object fields will get initialized, then this object {} blocks will get executed
+then other lines in the constructor will get executed
+
+override anotation denotes that its base class method
+If initialization is done for a field it will be exuted after super() line inthe constructor, otherwise the field line
+will not be covered while running the constructor code
+use getters and setters for private web elements
+
+xpath:
+------------
+path expressions
+
+TestNG:
+-------
+class with business logic method with test annoattion and methiod details mentioned in testng.xml and run testng
+testng is suite file having one or more tests each test having test classes with <class>  tag
+In data provider we can get the current test method name using m.getName as method object is passed to the data provider by default if 
+it has (method m) as argument
+onre mistake is we do not provide dataprovider and test needs some arguments, this will result in skipping of the test
+BeforeGroups is useful to mention list of groups beforte which this configuration method should be run. It will be run before first test method belonnging
+to the groups is run
+
+Selenium:
+------------
+How to continue test irrespective of failures using boolean variables
+driver.switchTo().activeElement();
+if enclosing form has button of type "submit" then we can call submit method on the field in the form
+Deselect all is applicable only for multi select box
+best way of handling/opening multiplw windows using web driver.
+We can get all window hadles before we open new window using java script window.open()
+after opening again get all window handles and remove all old window ahndles from new handles using removeAll.
+The remaining handle belongs to new window. Thia way we know the handles of all the windows and can be used to swicth
+http://blog.nsissoft.com/2012/01/10/creating-new-window-in-selenium-2-webdriver-java/
+public static void windowTest() {
+		try {
+			driver = Setup.getDriver();
+			driver.get("http://testwiresqa.nyc.deshaw.com");
+			AppWait.waitForTime(10l);
+			String parent = driver.getWindowHandle();
+			Set<String> oldhandles = driver.getWindowHandles();
+			((JavascriptExecutor) driver)
+					.executeScript("window.open('http://www.gmail.com')");
+			AppWait.waitForTime(5l);
+			Set<String> newhandles = driver.getWindowHandles();
+			newhandles.removeAll(oldhandles);
+			String child = "";
+			for (String s : newhandles) {
+				child = s;
+				break;
+			}
+			oldhandles = driver.getWindowHandles();
+			((JavascriptExecutor) driver)
+					.executeScript("window.open('http://docs.seleniumhq.org')");
+			AppWait.waitForTime(5l);
+			newhandles = driver.getWindowHandles();
+			newhandles.removeAll(oldhandles);
+			String child2 = "";
+			for (String s : newhandles) {
+				child2 = s;
+				break;
+			}
+			driver.switchTo().window(parent);
+			System.out.println("parent " + driver.getTitle());
+			AppWait.waitForTime(5l);
+			driver.switchTo().window(child);
+			System.out.println("child " + driver.getTitle());
+			AppWait.waitForTime(5l);
+			driver.switchTo().window(child2);
+			System.out.println("child2 " + driver.getTitle());
+			AppWait.waitForTime(5l);
+		} catch (Exception e) {
+			LOG.error("FAILED WHILE LOADING  elements of Advanced search window");
+			Assert.fail(" FAILED WHILE LOADING  elements of Advanced search window");
+		}
+	}
+
+
+challenges:
+wheret to place the verification methods
+HOW TO CONFIGURE COLUMNS DISPLAYED IN tree grid of search results, whether to have only the specific columns or all columns or default columns

@@ -1,0 +1,9 @@
+Regular expressions:
+---------------------
+start, end, find, matches, group, groupcount, replacefirst, replaceall, pattern, matcher, appendreplacement, appendtail, case insensitive flag
+remove certain characters using pattern
+
+IO Help:
+-----------
+Buffer means a memory location to where file is read and from where data is written to file
+buffred writer use it flushing the stream
