@@ -1,0 +1,4 @@
+[wiresAuto] get data sheet uses = WiresTest (WiresTest.java:57)
+[wiresAuto] Data File Path = src/test/resources/testng_wires_data.xls (WiresTest.java:59)
+[wiresAuto] waiting for given time (AppWait.java:71)
+[wiresAuto] Quitting at the end of the Test.. (Setup.java:209)

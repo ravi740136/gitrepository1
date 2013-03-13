@@ -1,0 +1,31 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Wires Automation Test Suite">
+	<test name="Wires UI Functional Automation Tests" preserve-order="true">
+		<classes>
+			<class name="deshaw.automation.wires.test.WiresTest">
+				<methods>
+					<include name="tSubmitNewRequest" />
+					<exclude name="tOpenAndVerifyConfigureSettings" />
+					<exclude name="tOpenAndVerifySearchConfigureGrid" />
+					<exclude name="tOpenAndVerifyRefDataPage" />
+					<exclude name="tVerifyCatReferenceData" />
+					<exclude name="tVerifyCodaFQAData" />
+					<exclude name="tVerifyFinancialTypeData" />
+					<exclude name="tVerifySignatoryGroupData" />
+					<exclude name="tVerifySignatoryAmountRangeData" />
+					<exclude name="tVerifySignatoryGroupMemberData" />
+					<exclude name="tVerifySignatoryRuleData" />
+					<exclude name="tVerifyTransmissionTypeData" />
+					<exclude name="tVerifyConfigureGridInRefernceData" />
+					<exclude name="tVerifyPassPhrasePage" />
+					<exclude name="tVerifyCloneRequestPage" />
+					<exclude name="tVerifyAdvSearchPage" />
+					<exclude name="tVerifyGLUploadAndPreviewCodaScreens" />
+					<exclude name="tVerifyApproveWireFromWireDetails" />
+					<exclude name="tVerifyBulkUpdateWindowFromWireDetails" />					
+					<exclude name="tPreviewCodaGLUPloadScreen_CompleteWorkflow" />		
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 

@@ -1,0 +1,45 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Wires Automation Test Suite">
+	<test name="Wires UI Functional Automation Tests" preserve-order="true">
+		<classes>
+			<class name="deshaw.automation.wires.test.WiresTest">
+				<methods>
+					<include name="tSubmitNewRequest" />
+					<include name="tReleaseWireUsingFAX1" />
+					<include name="tReleaseWireUsingFAX" />
+					<include name="tOpenAndVerifyConfigureSettings" />
+					<include name="tOpenAndVerifySearchConfigureGrid" />
+					<include name="tOpenAndVerifyRefDataPage" />
+					<include name="tVerifyCatReferenceData" />
+					<include name="tVerifyCodaFQAData" />
+					<include name="tVerifyFinancialTypeData" />
+					<include name="tVerifySignatoryGroupData" />
+					<include name="tVerifySignatoryAmountRangeData" />
+					<include name="tVerifySignatoryGroupMemberData" />
+					<include name="tVerifySignatoryRuleData" />
+					<include name="tVerifyTransmissionTypeData" />
+					<include name="tVerifyConfigureGridInRefernceData" />
+					<include name="tVerifyPassPhrasePage" />
+					<include name="tVerifyCloneRequestPage" />
+					<include name="tVerifyAdvSearchPage" />
+					<include name="tVerifySearchForLogger" />
+					<include name="tVerifySearchForCategory" />
+					<include name="tVerifySearchForStrategy" />
+					<include name="tVerifySearchForCurrency" />
+					<include name="tVerifySearchForSourceAccount" />
+					<include name="tVerifySearchForDestAccount" />
+					<include name="tVerifySearchForSourceCompany" />
+					<include name="tVerifySearchForDestCompany" />
+					<include name="tVerifySearchForSourcePortfolio" />
+					<include name="tVerifySearchForDestPortfolio" />
+					<include name="tVerifyGLUploadAndPreviewCodaScreens" />
+					<include name="tVerifyApproveWireFromWireDetails" />
+					<include name="tVerifyBulkUpdateWindowFromWireDetails" />
+					<include name="tPreviewCodaGLUPloadScreen_CompleteWorkflow" />
+					<include name="tVerifyBulkUpdatePage" />
+					<include name="tVerifyApprovingSpecificWire" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 
