@@ -159,3 +159,7 @@ public static void windowTest() {
 challenges:
 wheret to place the verification methods
 HOW TO CONFIGURE COLUMNS DISPLAYED IN tree grid of search results, whether to have only the specific columns or all columns or default columns
+
+Site bugger for java script:
+-----------------------------
+http://www.sitebugger.com/
