@@ -76,6 +76,41 @@ Attach the debugger to the running maven by selecting the “Maven Surefire” debug
 
 Java:
 ----------
+
+derby sql:
+To use derby use it in embedded mode which is default mode
+just include derby.jar in your classpath after downloading the derby bin C:\Apache\db-derby-10.9.1.0-bin at  http://db.apache.org/derby/derby_downloads.html. 
+protocol is "jdbc:derby:<dbname>;create=true" user name and password are optional
+to shutdown the engine jdbc:derby:;shutdown=true and catch the exception 
+catch (SQLException se)
+        {
+            if (( (se.getErrorCode() == 50000)
+                    && ("XJ015".equals(se.getSQLState()) ))) {
+                // we got the expected exception
+                System.out.println("Derby shut down normally");
+                // Note that for single database shutdown, the expected
+                // SQL state is "08006", and the error code is 45000.
+		
+	}
+for example refer
+C:\Apache\db-derby-10.9.1.0-bin\demo\programs\simple\SimpleApp.java
+
+java sql:
+execute query cannot be called with statement that reurns row count 
+
+interface:
+by default all the members of interface are considered public
+
+class:
+by default constructor is not considered public, the default constructor is public with no arguments
+if we create a constructor in the class, then default constructor will not be available
+default constructor will be added only if constructor is not added explicitly
+
+base class sub class:
+if a base class refers extended class object, if  extended class overrides base class field
+base class reference to field members will result in base class field value
+base class reference to overriden method will invoke extended class method
+
 workflow of initialization:
 first static initialization happens while loading the class,
 then super class constructor is called super() by default while creating the object

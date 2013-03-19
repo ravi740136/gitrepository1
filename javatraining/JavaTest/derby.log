@@ -1,0 +1,16 @@
+----------------------------------------------------------------
+Sun Mar 17 21:57:11 IST 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-013d-792d-166a-00000346fa70 
+on database directory E:\work\raviclone\gitrepository1\javatraining\JavaTest\firstdb  with class loader sun.misc.Launcher$AppClassLoader@575e6691 
+Loaded from file:/E:/worklibrary/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_05-b06
+user.dir=E:\work\raviclone\gitrepository1\javatraining\JavaTest
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sun Mar 17 21:57:12 IST 2013: Shutting down Derby engine
+----------------------------------------------------------------
+Sun Mar 17 21:57:12 IST 2013:
+Shutting down instance a816c00e-013d-792d-166a-00000346fa70 on database directory E:\work\raviclone\gitrepository1\javatraining\JavaTest\firstdb with class loader sun.misc.Launcher$AppClassLoader@575e6691 
+----------------------------------------------------------------
