@@ -77,6 +77,18 @@ Attach the debugger to the running maven by selecting the “Maven Surefire” debug
 Java:
 ----------
 
+main differences between c and java:
+http://www.durofy.com/programming/10-major-differences-between-c-and-java/
+overloading not allowed in C, java is object oriented c is procdural oriented
+c follows top down approach and java follows bottom up approach
+c is compiler language where as java is interpreted language in java code is compiled to byte code which is interpreted by JVM, different OS can have different JVM
+In C code is directly compiled to machine language so C is more close to machine level.
+There is no exception handling in c
+No need to have the preprocessor statements like #include, #define in java class na imported which maps to a directory
+no pointers need to specified explicitly in Java, it is automatically handled by reference variables
+Memory management is done automatically by garbage collector in java instead of explicit methods in C like malloc and calloc
+
+
 derby sql:
 To use derby use it in embedded mode which is default mode
 just include derby.jar in your classpath after downloading the derby bin C:\Apache\db-derby-10.9.1.0-bin at  http://db.apache.org/derby/derby_downloads.html. 
