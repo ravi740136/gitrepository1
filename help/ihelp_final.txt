@@ -1,3 +1,6 @@
+projector:
+Epson EB-X02 [240v]
+9849074564
 Ame:
 AOQPJ4554G - PAN CARD FATHER
 1. Setting maven debug project
@@ -26,6 +29,30 @@ git reset HEAD .
 git checkout -- .
 Selenium:
 --------
+video session
+-------------
+f12, esc 
+xpath:
+starts-with
+substring(@id, 2) = 'earchinput'
+substring(@id, 2, 5) = 'earchinput'
+text()
+normalize-space
+contains()
+following-sibling
+input[2]
+parent or ..
+following-sibling::div[3]
+preceding-sibling::*
+css always forward xpath back also
+ENDS WITH
+nested predicate
+nth child in css locator
+
+CSS:
+NO @ FOR ATTRIBUTE
+*=
+
 webdriver vs rc implementation
 find element methods for driver and element
 find element xpath, css, id, name, linktext, partail linktext, class name, tag name, get attribute
@@ -76,6 +103,13 @@ Attach the debugger to the running maven by selecting the “Maven Surefire” debug
 
 Java:
 ----------
+key points:
+declaring as one interface reference
+and casting it to some toher interface of the object and use its methods like (JavaScriptExecutor)driver.executescript()
+
+java breaking for loop:
+break statement can break
+return statement can also break the for loop
 
 main differences between c and java:
 http://www.durofy.com/programming/10-major-differences-between-c-and-java/
@@ -109,6 +143,9 @@ C:\Apache\db-derby-10.9.1.0-bin\demo\programs\simple\SimpleApp.java
 
 java sql:
 execute query cannot be called with statement that reurns row count 
+callablestattement extends preparedstatement, used to call stored procedures
+it can have IN and OUT parameters, it can result in single resultset or multiple resultsets
+
 
 interface:
 by default all the members of interface are considered public
@@ -150,6 +187,16 @@ to the groups is run
 
 Selenium:
 ------------
+http://www.seleniumtests.com/p/selenium-interview-questions.html
+to be learnt:
+frames, javascript, eventlisteners
+
+implementations:
+1. how to switch to a window with specific title using driver.getwindowhandles()
+2. how to open new browser window when we have alreafy opened a window
+3. how to take screen shots using takesScreenshot interface use fileutils to copy file to some other location
+4. how to execute java script with parameters that reurn a value
+
 How to continue test irrespective of failures using boolean variables
 driver.switchTo().activeElement();
 if enclosing form has button of type "submit" then we can call submit method on the field in the form
@@ -210,3 +257,14 @@ HOW TO CONFIGURE COLUMNS DISPLAYED IN tree grid of search results, whether to ha
 Site bugger for java script:
 -----------------------------
 http://www.sitebugger.com/
+
+Webdriver Revision
+-----------------------
+org.openqa.selenium interface
+WebElement is done, click, sendkeys, clear, getattribute, gettext, gettagname, isDisplayed, isEnabled, isSelected
+webdriver geturl, getpagesource, getwindowhandle, getwindowhandles, gettitle, findelement, findelements, navigate, manage window, manage timeouts, manage cookies, switchto window, switchto laert. switchto frame, get, quit, close closes current window quits if it is last window
+Alert is done accept, cancel, sendkeys, gettext
+JavaScriptExecutor is done return values are converted to java objects, null is returned if function does not return any value, it can even have arguments, script is executed anonymously
+parameters can be passed like boolean, numeric , string, array.
+TakesScreenshot returns a file which can be copied to some other file
+

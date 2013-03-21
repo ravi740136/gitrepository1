@@ -21,8 +21,9 @@ public class MainClass {
 
 	public static void main(String[] args) throws SQLException  {
 		try{
-Connection con = SQLTest.getConnection();
+SQLTest.getConnection();
 SQLTest.insertData();
+SQLTest.getAndprintData();
 		}
 		finally{
 			SQLTest.shutdown();
