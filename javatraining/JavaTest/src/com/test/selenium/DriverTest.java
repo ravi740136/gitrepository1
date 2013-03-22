@@ -10,6 +10,7 @@ public class DriverTest {
 		driver = new FirefoxDriver();
 		driver.get(URL);
 		Thread.sleep(5000l);
+
 		
 	}
 
