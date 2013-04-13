@@ -1,0 +1,19 @@
+Java:
+-----
+In a method return statement can be present in "catch" block also
+Wrapper calssses like Interger.valueof(String) will return the corresponding object by converting the string object to specific object
+use string builder to append and form a string
+.append
+.tostring
+Integer Boolean classes
+switch statement
+how to use enum type
+anonymous arraylist object, adding elements to it
+converting Atrraylist to arrray with array as parameter, without using any reference we can return it
+splitting a string into tokens using string tokenizer, checking for null and adding tokens to list
+string tokenizer can have any no of delimiters
+
+sql
+-------
+distinct, order by, information_schema.tables, in used in sub queries
+select * from ventity where entitygroupcode in (select entitygroupcode from ventity where entitycode = '439') order by entitycode 

@@ -103,6 +103,15 @@ Attach the debugger to the running maven by selecting the “Maven Surefire” debug
 
 Java:
 ----------
+when to use abstract class and interface
+-----------------------------------------
+1. use interface when unrelated classes have certain comon functionality like serialization, create interface like serializable
+2. use abstract class, when you have certain methods which can have some default implementation and multiple related classes use that default implementation
+use abstarct class so that teh implementation need not be repeated in several classes
+3. use abstract class, when the functionality keeps changing, like we will be adding more methods then use abstarct class so that the classes
+which have alreday extended it will not break. in this case if we use interface the implemented classes will break
+4. use interface  
+
 key points:
 declaring as one interface reference
 and casting it to some toher interface of the object and use its methods like (JavaScriptExecutor)driver.executescript()
