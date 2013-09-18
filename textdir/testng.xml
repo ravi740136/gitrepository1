@@ -1,3 +1,4 @@
-test tesrt test
-test
-tesdt
+<!DOCTYPE suite SYSTEM http://teng.org/testng-1.0.dtd>
+<suite name = "testsuite">
+
+</suite>
